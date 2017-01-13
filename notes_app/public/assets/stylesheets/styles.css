@@ -1,0 +1,7 @@
+.note {
+  border-top: 1px solid #333;
+}
+
+.note h2 small {
+  float: right;
+}

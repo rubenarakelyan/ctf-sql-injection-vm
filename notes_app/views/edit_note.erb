@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Edit "<%= @note.title %>"</h1>
+  </div>
+</div>
+<% if @errors %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-danger" role="alert">
+      <%= @errors %>
+    </div>
+  </div>
+</div>
+<% end %>
+<div class="row">
+  <div class="col-md-10">
+    <form method="post">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" value="<%= @note.title %>" id="title" maxlength="50" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="body">Body</label>
+        <textarea name="body" id="body" maxlength="255" class="form-control"><%= @note.body %></textarea>
+      </div>
+      <input type="hidden" name="_method" value="put">
+      <button type="submit" class="btn btn-default">Edit note</button>
+    </form>
+  </div>
+  <div class="col-md-2">
+    <p>Change the title and text of your note as required and click <em>Edit note</em> to save it.
+      You'll be redirected to the home page where your edited note will appear.</p>
+  </div>
+</div>

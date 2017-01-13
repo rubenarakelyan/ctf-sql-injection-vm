@@ -1,0 +1,30 @@
+<!-- TODO: Add a form to filter results - RA 13/01 -->
+<div class="row">
+  <div class="col-md-12">
+    <h1>All notes</h1>
+  </div>
+</div>
+<% if @notes.length == 0 %>
+<div class="row">
+  <div class="col-md-12">
+    <p>You don't have any notes at the moment. Why not <a href="/note/add">add one</a>?</p>
+  </div>
+</div>
+<% else %>
+  <div class="row">
+    <div class="col-md-12">
+      <p><a href="/note/add">Add another note</a></p>
+    </div>
+  </div>
+  <% @notes.each do |note| %>
+    <div class="row note">
+      <div class="col-md-12">
+        <h2><%= note['title'] %> <small>[
+          <a href="/note/<%= note['id'] %>/edit">edit</a> |
+          <a href="/note/<%= note['id'] %>/delete">delete</a>
+        ]</small></h2>
+        <pre><%= note['body'] %></pre>
+      </div>
+    </div>
+  <% end %>
+<% end %>

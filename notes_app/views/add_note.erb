@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Add a note</h1>
+  </div>
+</div>
+<% if @errors %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-danger" role="alert">
+      <%= @errors %>
+    </div>
+  </div>
+</div>
+<% end %>
+<div class="row">
+  <div class="col-md-10">
+    <form method="post">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" maxlength="50" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="body">Body</label>
+        <textarea name="body" id="body" maxlength="255" class="form-control"></textarea>
+      </div>
+      <button type="submit" class="btn btn-default">Add note</button>
+    </form>
+  </div>
+  <div class="col-md-2">
+    <p>Fill in the title and text of your note and click <em>Add note</em> to save it.
+      You'll be redirected to the home page where your new note will appear.</p>
+  </div>
+</div>
