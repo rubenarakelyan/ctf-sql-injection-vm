@@ -14,7 +14,7 @@ RUN /bin/bash -l -c "rvm reload && rvm install 2.4.0"
 RUN /bin/bash -l -c "gem install bundler"
 # Install packages used by the web app
 RUN apt-get -y install nginx
-# TODO: Install useful tools
+# Install useful VM tools
 RUN apt-get -y install net-tools nano
 # Copy the notes app into the container
 COPY notes_app /var/www/notes_app/
@@ -28,4 +28,5 @@ RUN chmod +x startup.sh
 RUN /bin/bash -l -c "bundle"
 # Start everything up
 CMD ["/bin/bash", "-l", "-c", "/var/www/notes_app/startup.sh"]
+# Expose the site to the outside world
 EXPOSE 80
